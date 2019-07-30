@@ -46,8 +46,11 @@ Run the file to make the environments variables active: `source myenv.bash`
 
 Next, compile for the app you want (e.g. `fjordos_dramsfjord`):
 ```bash
-./build_roms_standalone.sh fjordos_dramsfjord
+./build_roms_standalone.sh fjordos_dramsfjord -j 4
 ```
+The file `build_roms_standalone.sh` reads the CPP options for the app as well as checks to see if there are user modified files to include during compilation. This is also where linking to CICE takes place.
+
+The result is stored as `romsM` for regular app and `romsG` for debugging in `${METROMS_BLDDIR}`. The same folder has the `ocean.in` file as well as the build directory. 
 
 To start a job for a particular niva_app go to the  `${METROMS_APPDIR} (${HOME}/niva_apps)` where all of the apps are stored. If you want to run  `fjordos_dramsfjord ` go into directory and execute command:
 
