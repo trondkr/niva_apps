@@ -31,12 +31,17 @@ export METROMS_MYHOST="fram" #$1
 echo "loading $METROMS_MYHOST paths"
 export LC_ALL=C
 
+# This is the main folder where niva_apps, ROMS src 
+# code, and metroms are stored
+export PROJECT=/cluster/projects/nn9297k
+
+# Now setup the various sub-folder settings
 if [ "$METROMS_MYHOST" == "fram" ]; then
-    export METROMS_BASEDIR=$HOME/metroms
-    export METROMS_SRC=$HOME/ROMS_v37_26072019
+    export METROMS_BASEDIR=$PROJECT/metroms
+    export METROMS_SRC=$PROJECT/ROMS_v37_26072019
     export METROMS_TMPDIR=/cluster/projects/nn9297k
 	export METROMS_BLDDIR=$METROMS_TMPDIR
-    export METROMS_APPDIR=$HOME/niva_apps
+    export METROMS_APPDIR=$PROJECT/niva_apps
 else
     echo "Undefined METROMS_MYHOST ", $METROMS_MYHOST
 fi
